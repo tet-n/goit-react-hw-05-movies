@@ -1,7 +1,8 @@
+import { TrendingList } from 'components';
 import React from 'react';
 
 const Home = () => {
-  return <div>Home</div>;
+  return <TrendingList />;
 };
 
 export default Home;
