@@ -1,7 +1,15 @@
-import React from 'react';
+import Form from 'components/Form/Form';
+import { Outlet } from 'react-router-dom';
+import SeekedMouvies from 'components/SeekedMouvies/SeekedMouvies';
 
 const Movies = () => {
-  return <div>Movies</div>;
+  return (
+    <>
+      <Form />
+      <SeekedMouvies />
+      <Outlet />
+    </>
+  );
 };
 
 export default Movies;

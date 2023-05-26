@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Img, Item } from './TrendingMovie.styled';
 
 const TrendingMovie = ({ movie }) => {
@@ -10,10 +11,12 @@ const TrendingMovie = ({ movie }) => {
   }
   return (
     <Item>
-      <div style={{ objectFit: 'cover' }}>
-        <Img src={src} alt={title} />
-      </div>
-      <h2>{title}</h2>
+      <Link to={`movies/${movie.id.toString()}`}>
+        <div style={{ objectFit: 'cover' }}>
+          <Img src={src} alt={title} />
+        </div>
+        <h2>{title}</h2>
+      </Link>
     </Item>
   );
 };
