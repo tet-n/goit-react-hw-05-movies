@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Container, Header, Nav } from './Layout.styled';
@@ -25,7 +26,9 @@ const Layout = () => {
       </Header>
       <main>
         <Container>
-          <Outlet />
+          <Suspense fallback={<div>Please wait. We are in a process...</div>}>
+            <Outlet />
+          </Suspense>
         </Container>
       </main>
     </>

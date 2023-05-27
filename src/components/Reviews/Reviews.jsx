@@ -11,7 +11,6 @@ const Reviews = () => {
   useEffect(() => {
     fetchReviews(movieId)
       .then(data => {
-        console.log(data);
         setReviews(data);
       })
       .catch(console.log);
