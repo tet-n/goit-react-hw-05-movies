@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ReviewItem = ({ author, content }) => {
   return (
@@ -7,6 +8,11 @@ const ReviewItem = ({ author, content }) => {
       <p>{content}</p>
     </li>
   );
+};
+
+ReviewItem.propTypes = {
+  author: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
 };
 
 export default ReviewItem;

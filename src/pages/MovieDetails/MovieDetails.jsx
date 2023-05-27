@@ -8,8 +8,6 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
 
-  // console.log(location);
-
   const backUpLinkRef = useRef(location.state?.from ?? '/movies');
 
   const [movieData, setMovieData] = useState(null);

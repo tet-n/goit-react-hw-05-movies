@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Actor = ({ name, character, profile_path }) => {
   const src = profile_path
     ? `https://image.tmdb.org/t/p/w200/${profile_path}`
@@ -11,6 +13,12 @@ const Actor = ({ name, character, profile_path }) => {
       <p>{character}</p>
     </li>
   );
+};
+
+Actor.propTypes = {
+  name: PropTypes.string.isRequired,
+  character: PropTypes.string.isRequired,
+  profile_path: PropTypes.string.isRequired,
 };
 
 export default Actor;

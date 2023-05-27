@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { Img, Item } from './TrendingMovie.styled';
 
 const TrendingMovie = ({ movie, location }) => {
@@ -19,6 +20,16 @@ const TrendingMovie = ({ movie, location }) => {
       </Link>
     </Item>
   );
+};
+
+TrendingMovie.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    name: PropTypes.string,
+    id: PropTypes.number.isRequired,
+    poster_path: PropTypes.string.isRequired,
+  }).isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default TrendingMovie;
