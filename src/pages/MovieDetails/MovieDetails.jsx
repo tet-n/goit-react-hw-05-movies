@@ -1,8 +1,9 @@
 import { Movie } from 'components';
 import React, { Suspense, useEffect, useRef, useState } from 'react';
-import { Outlet, Link, useParams, useLocation } from 'react-router-dom';
+import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { fetchMovie } from 'services/fetchMovies/movieAPI';
 import { Loader } from 'components';
+import { Detail, LinkList, LinkStyle, StyledLink } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -23,18 +24,18 @@ const MovieDetails = () => {
 
   return (
     <section>
-      <Link to={backUpLinkRef.current}>Back to</Link>
+      <LinkStyle to={backUpLinkRef.current}>Back to</LinkStyle>
       {showLoader && <Loader visible={showLoader} />}
       {movieData && <Movie movieData={movieData} />}
-      <p>Additional information</p>
-      <ul>
+      <Detail>Additional information</Detail>
+      <LinkList>
         <li>
-          <Link to="cast">Cast</Link>
+          <StyledLink to="cast">Cast</StyledLink>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <StyledLink to="reviews">Reviews</StyledLink>
         </li>
-      </ul>
+      </LinkList>
       <Suspense fallback={<div>Please wait. We are in a process...</div>}>
         <Outlet />
       </Suspense>

@@ -1,4 +1,14 @@
 import PropTypes from 'prop-types';
+import {
+  Img,
+  ImgWrap,
+  InsideWrap,
+  List,
+  MovieTitle,
+  OutsideWrap,
+  Span,
+  SubTitle,
+} from './Movie.styled';
 
 const Movie = ({ movieData }) => {
   const src = movieData.poster_path
@@ -12,19 +22,23 @@ const Movie = ({ movieData }) => {
 
   return (
     <>
-      <div style={{ display: 'flex', gap: 30 }}>
-        <div>
-          <img src={src} alt={movieData.title} />
-        </div>
-        <div>
-          <h2>{movieData.title}</h2>
-          <p>User score: {userScore}%</p>
-          <h3>Overview</h3>
-          <p>{movieData.overview}</p>
-          <h3>Genres</h3>
-          <ul>{genres}</ul>
-        </div>
-      </div>
+      <OutsideWrap>
+        <ImgWrap>
+          <Img src={src} alt={movieData.title} />
+        </ImgWrap>
+        <InsideWrap>
+          <MovieTitle>{movieData.title}</MovieTitle>
+          <div>
+            <p>
+              User score: <Span>{userScore}%</Span>
+            </p>
+            <SubTitle>Overview</SubTitle>
+            <p>{movieData.overview}</p>
+            <SubTitle>Genres</SubTitle>
+            <List>{genres}</List>
+          </div>
+        </InsideWrap>
+      </OutsideWrap>
     </>
   );
 };

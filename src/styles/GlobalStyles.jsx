@@ -17,7 +17,7 @@ export const GlobalStyles = css`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
       'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
       'Helvetica Neue', sans-serif;
-    background: white;
+    background: #525151;
     min-height: 100vh;
 
     font-style: normal;
@@ -55,7 +55,7 @@ export const GlobalStyles = css`
 
   img {
     display: block;
-    max-width: 100%;
+    /* max-width: 100%; */
     height: auto;
   }
 

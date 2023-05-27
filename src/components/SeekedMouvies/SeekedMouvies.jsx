@@ -2,6 +2,7 @@ import { Loader } from 'components';
 import { useEffect, useState } from 'react';
 import { fetchMoviesByName } from 'services/fetchMovies/movieAPI';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { Img, ImgThumb, Item, List, Title } from './SeekedMouvies.styled';
 
 const SeekedMouvies = () => {
   const [params] = useSearchParams();
@@ -22,28 +23,28 @@ const SeekedMouvies = () => {
   return (
     <>
       <Loader visible={showLoader} />
-      <ul>
+      <List>
         {movies.map(movie => {
           let title = movie?.title || movie?.name;
           let src = movie.poster_path
-            ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
+            ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
             : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg';
           if (title.length > 25) {
             title = title.substring(0, 20) + '...';
           }
 
           return (
-            <li key={movie.id}>
+            <Item key={movie.id}>
               <Link to={`${movie.id.toString()}`} state={{ from: location }}>
-                <div style={{ objectFit: 'cover' }}>
-                  <img src={src} alt={title} />
-                </div>
-                <h2>{title}</h2>
+                <ImgThumb>
+                  <Img src={src} alt={title} />
+                </ImgThumb>
+                <Title>{title}</Title>
               </Link>
-            </li>
+            </Item>
           );
         })}
-      </ul>
+      </List>
     </>
   );
 };

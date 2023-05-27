@@ -1,17 +1,6 @@
 import { Suspense } from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
-import styled from '@emotion/styled';
-import { Container, Header, Nav } from './Layout.styled';
-
-const StyledLink = styled(NavLink)`
-  color: #ffffff;
-  text-decoration: none;
-  padding: ${props => props.theme.spacing(2, 0)};
-
-  &.active {
-    color: #28b48f;
-  }
-`;
+import { Outlet } from 'react-router-dom';
+import { Container, Header, Nav, StyledLink } from './Layout.styled';
 
 const Layout = () => {
   return (
@@ -25,7 +14,7 @@ const Layout = () => {
         </Container>
       </Header>
       <main>
-        <Container>
+        <Container padding>
           <Suspense fallback={<div>Please wait. We are in a process...</div>}>
             <Outlet />
           </Suspense>
