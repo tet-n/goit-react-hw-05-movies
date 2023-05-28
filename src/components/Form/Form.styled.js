@@ -1,5 +1,9 @@
 import styled from '@emotion/styled';
 
+export const StyledForm = styled.form`
+  margin-bottom: 32px;
+`;
+
 export const Field = styled.input`
   display: inline-block;
   margin-right: ${props => props.theme.spacing(2)};
@@ -7,6 +11,7 @@ export const Field = styled.input`
   height: ${props => props.theme.spacing(9)};
   border-radius: ${props => props.theme.spacing(1)};
   transition: box-shadow 0.3s cubic-bezier(0.7, 0.98, 0.86, 0.98);
+
   :hover,
   :focus {
     box-shadow: ${props => props.theme.shadows.regular};

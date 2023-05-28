@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import Form from 'components/Form/Form';
 import { Loader } from 'components';
 import { fetchMoviesByName } from 'services/movieAPI/movieAPI';
-import { Img, Item, List, Title } from './Movies.styled';
+import { MovieList } from 'components/MovieList/MovieList';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
-  const location = useLocation();
 
   const [movies, setMovies] = useState([]);
   const [showLoader, setShowLoader] = useState(false);
@@ -29,16 +28,7 @@ const Movies = () => {
     <section>
       <Form updateParams={updateParams} />
       <Loader visible={showLoader} />
-      <List>
-        {movies.map(({ titleName, id, src }) => (
-          <Item tabIndex={1} key={id}>
-            <Link to={`${id.toString()}`} state={{ from: location }}>
-              <Img src={src} alt={titleName} />
-              <Title>{titleName}</Title>
-            </Link>
-          </Item>
-        ))}
-      </List>
+      {query && <MovieList movies={movies} />}
     </section>
   );
 };
