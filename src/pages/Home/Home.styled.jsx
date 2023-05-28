@@ -3,12 +3,11 @@ import styled from '@emotion/styled';
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  margin-top: ${props => props.theme.spacing(8)};
+  justify-content: center;
+  gap: ${props => props.theme.spacing(7)};
 `;
 
 export const Item = styled.li`
-  /* list-style: square; */
   font-size: 12px;
   transition: transform 0.3s cubic-bezier(0.7, 0.98, 0.86, 0.98),
     box-shadow 0.3s cubic-bezier(0.7, 0.98, 0.86, 0.98);
@@ -20,12 +19,9 @@ export const Item = styled.li`
   overflow: hidden;
   border-radius: 10px;
 `;
-export const ImgThumb = styled.div`
-  object-fit: cover;
-`;
+
 export const Img = styled.img`
   width: 250px;
-  height: 300px;
   object-fit: cover;
 `;
 

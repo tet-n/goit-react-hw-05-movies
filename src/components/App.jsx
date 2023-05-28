@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { fetchTrendingMovies } from 'services/fetchMovies/movieAPI';
+import { fetchTrendingMovies } from 'services/movieAPI/movieAPI';
 
 const Layout = lazy(() => import('./Layout/Layout'));
 const Cast = lazy(() => import('./Cast/Cast'));

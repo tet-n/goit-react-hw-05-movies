@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 0 16px;
   padding: ${props => {
-    return props.padding && props.theme.spacing(5, 0);
+    return props.padding && props.theme.spacing(5, 4);
   }};
 `;
 

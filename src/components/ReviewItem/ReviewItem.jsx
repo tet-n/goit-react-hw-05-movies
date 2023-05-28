@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Content, Item, StyledIcon, Title, Wrapper } from './ReviewItem.styled';
 
 const ReviewItem = ({ author, content }) => {
   return (
-    <li>
-      <h3>{author}</h3>
-      <p>{content}</p>
-    </li>
+    <Item>
+      <Wrapper>
+        <StyledIcon />
+        <Title>{author}</Title>
+      </Wrapper>
+      <Content>{content}</Content>
+    </Item>
   );
 };
 

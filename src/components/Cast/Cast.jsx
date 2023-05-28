@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchCast } from 'services/fetchMovies/movieAPI';
+import { fetchCast } from 'services/movieAPI/movieAPI';
 import { Actor } from 'components';
-import { List } from './Cast.styled';
+import { Info, List } from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -15,12 +15,14 @@ const Cast = () => {
 
   return (
     <>
-      {cast.length && (
+      {cast.length ? (
         <List>
           {cast.map(actorInfo => (
             <Actor key={actorInfo.id} {...actorInfo} />
           ))}
         </List>
+      ) : (
+        <Info>There are not information about movie cast </Info>
       )}
     </>
   );
